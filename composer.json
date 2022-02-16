@@ -1,0 +1,29 @@
+{
+    "name": "veseluy-rodjer/laravel-service-generator",
+    "description": "Generate Laravel services",
+    "keywords": ["generator", "php", "cli", "laravel", "artisan", "services", "pattern"],
+    "homepage": "https://github.com/veseluy-rodjer/laravel-service-generator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Veseluy Rodjer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "symfony/console": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "VeseluyRodjer\\ServiceGenerator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "VeseluyRodjer\\ServiceGenerator\\Http\\Providers\\CommandServiceProvider",
+                "VeseluyRodjer\\ServiceGenerator\\ServiceGeneratorServiceProvider"
+            ]
+        }
+    }
+}
