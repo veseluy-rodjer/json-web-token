@@ -1,8 +1,8 @@
 {
-    "name": "veseluy-rodjer/laravel-service-generator",
-    "description": "Generate Laravel services",
-    "keywords": ["generator", "php", "cli", "laravel", "artisan", "services", "pattern"],
-    "homepage": "https://github.com/veseluy-rodjer/laravel-service-generator",
+    "name": "veseluy-rodjer/json-web-token",
+    "description": "Work with json web tokens",
+    "keywords": ["JWT", "php", "token", "laravel", "services"],
+    "homepage": "https://github.com/veseluy-rodjer/json-web-token",
     "license": "MIT",
     "authors": [
         {
@@ -15,14 +15,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VeseluyRodjer\\ServiceGenerator\\": "src/"
+            "VeseluyRodjer\\JsonWebToken\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VeseluyRodjer\\ServiceGenerator\\Http\\Providers\\CommandServiceProvider",
-                "VeseluyRodjer\\ServiceGenerator\\ServiceGeneratorServiceProvider"
+                "VeseluyRodjer\\JsonWebToken\\JsonWebTokenServiceProvider"
             ]
         }
     }
