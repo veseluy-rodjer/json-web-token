@@ -37,7 +37,7 @@ class JsonWebTokenService
         return base64_decode($b64, $strict);
     }
 
-    public function getData(string $token, string $secret): bool|array
+    public function getDataFromToken(string $token, string $secret): bool|array
     {
         $array = explode('.', $token);
         $signature = $this->base64UrlDecode($array[2]);
