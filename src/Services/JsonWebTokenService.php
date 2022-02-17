@@ -37,16 +37,23 @@ class JsonWebTokenService
         return base64_decode($b64, $strict);
     }
 
-    public function getDataFromToken(string $token, string $secret): bool|array
+    public function checkToken(string $token, string $secret): bool
     {
         $array = explode('.', $token);
         $signature = $this->base64UrlDecode($array[2]);
 
         $unsignedToken = $array[0] . '.' . $array[1];
         if ($signature === hash_hmac(self::ALG, $unsignedToken, $secret)) {
-            return json_decode($this->base64UrlDecode($array[1]), true);
+            return true;
         }
 
         return false;
+    }
+
+    public function getDataFromToken(string $token): array
+    {
+        $array = explode('.', $token);
+
+        return json_decode($this->base64UrlDecode($array[1]), true);
     }
 }
