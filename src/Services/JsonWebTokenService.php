@@ -41,13 +41,9 @@ class JsonWebTokenService
     {
         $array = explode('.', $token);
         $signature = $this->base64UrlDecode($array[2]);
-
         $unsignedToken = $array[0] . '.' . $array[1];
-        if ($signature === hash_hmac(self::ALG, $unsignedToken, $secret)) {
-            return true;
-        }
 
-        return false;
+        return $signature === hash_hmac(self::ALG, $unsignedToken, $secret);
     }
 
     public function getDataFromToken(string $token): array
